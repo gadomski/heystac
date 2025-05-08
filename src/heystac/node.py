@@ -117,9 +117,9 @@ class Node:
             child.write_to(child_directory)
 
         for item in self.items:
-            assert (
-                file_name == "collection.json"
-            ), "catalogs with items aren't supported"
+            assert file_name == "collection.json", (
+                "catalogs with items aren't supported"
+            )
 
             item_file_name = item.get_file_name()
 
