@@ -1,0 +1,3 @@
+[submodule "catalog"]
+	path = catalog
+	url = https://github.com/gadomski/heystac-catalog

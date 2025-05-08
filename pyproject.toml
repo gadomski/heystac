@@ -1,0 +1,59 @@
+[project]
+name = "heystac"
+authors = [{ name = "Pete Gadomski", email = "pete.gadomski@gmail.com" }]
+version = "0.0.1"
+description = "Command-line interface (CLI) to rate and crawl STAC"
+keywords = ["stac"]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.12"
+dependencies = [
+    "click>=8.1.7",
+    "httpx>=0.27.2",
+    "jsonschema>=4.23.0",
+    "pydantic-settings>=2.6.1",
+    "pydantic>=2.9.2",
+    "pystac[validation]>=1.11.0",
+    "shapely>=2.0.6",
+    "tabulate>=0.9.0",
+    "tqdm>=4.67.0",
+    "toml>=0.10.2",
+]
+classifiers = [
+    "Topic :: Scientific/Engineering :: GIS",
+    "Natural Language :: English",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[project.scripts]
+heystac = "heystac.cli:cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.13.0",
+    "pytest>=8.3.3",
+    "ruff>=0.7.3",
+    "types-requests>=2.32.0.20241016",
+    "types-tabulate>=0.9.0.20240106",
+    "types-toml>=0.10.8.20240310",
+    "types-tqdm>=4.66.0.20240417",
+]
+
+[tool.mypy]
+strict = true
+plugins = "pydantic.mypy"
+files = ["src/**/*.py", "tests/**/*.py"]
+
+[[tool.mypy.overrides]]
+module = "shapely"
+ignore_missing_imports = true
+
+[tool.ruff.lint]
+extend-select = ["I"]
