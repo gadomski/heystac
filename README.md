@@ -106,6 +106,10 @@ To specify a config file in another location:
 heystac --config a/nother/path/config.toml
 ```
 
+## History
+
+We broke out this library from [heystac-frontend](https://github.com/gadomski/heystac-frontend/) in May 2025.
+
 ## License
 
 MIT
